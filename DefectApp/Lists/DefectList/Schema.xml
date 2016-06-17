@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<List xmlns:ows="Microsoft SharePoint" Title="DefectList" FolderCreation="FALSE" Direction="$Resources:Direction;" Url="Lists/DefectList" BaseType="0" xmlns="http://schemas.microsoft.com/sharepoint/">
+  <MetaData>
+    <ContentTypes>
+      
+      
+    <ContentType ID="0x01004d5fcc446a1642369a63ccbcef202628" Name="ListFieldsContentType"><FieldRefs><FieldRef ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Name="Title" /><FieldRef ID="{b374b44a-1e3c-4fd9-8596-553e74038efa}" Name="AssignedGroup" /><FieldRef ID="{5554f29c-78b9-4289-835a-205a2d31e323}" Name="IssueID" /><FieldRef ID="{f96cc936-e435-4176-ae9c-fb7f36fe1f49}" Name="Date1" /><FieldRef ID="{c15b34c3-ce7d-490a-b133-3f4de8801b76}" Name="TaskStatus" /><FieldRef ID="{f0c9d6d2-b0b2-4cb6-a4ec-5f882fc1cb02}" Name="Description1" /><FieldRef ID="{a8eb573e-9e11-481a-a8c9-1104a54b2fbd}" Name="Priority" /></FieldRefs></ContentType><ContentTypeRef ID="0x01">
+        <Folder TargetName="Item" />
+      </ContentTypeRef><ContentTypeRef ID="0x0120" /></ContentTypes>
+    <Fields>
+      <Field Name="IssueID" ID="{5554f29c-78b9-4289-835a-205a2d31e323}" DisplayName="IssueID" Type="Number" />
+    <Field ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Type="Text" Name="Title" DisplayName="Component" Required="TRUE" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="Title" MaxLength="255" /><Field Name="AssignedGroup" ID="{b374b44a-1e3c-4fd9-8596-553e74038efa}" DisplayName="AssignedGroup" Type="User" Required="TRUE" List="UserInfo" /><Field Name="Date1" ID="{f96cc936-e435-4176-ae9c-fb7f36fe1f49}" DisplayName="Date" Type="DateTime" /><Field ID="{c15b34c3-ce7d-490a-b133-3f4de8801b76}" Name="TaskStatus" Group="$Resources:core,Issue_Task_Columns;" Type="Choice" DisplayName="Status" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" StaticName="TaskStatus"><CHOICES><CHOICE>Not Started</CHOICE><CHOICE>In Progress</CHOICE><CHOICE>Completed</CHOICE><CHOICE>Deferred</CHOICE><CHOICE>Waiting on someone else</CHOICE><CHOICE>Closed</CHOICE></CHOICES><MAPPINGS><MAPPING Value="1">$Resources:core,Tasks_NotStarted;</MAPPING><MAPPING Value="2">$Resources:core,Tasks_InProgress;</MAPPING><MAPPING Value="3">$Resources:core,Tasks_Completed;</MAPPING><MAPPING Value="4">$Resources:core,Tasks_Deferred;</MAPPING><MAPPING Value="5">$Resources:core,Tasks_Waiting;</MAPPING></MAPPINGS><Default>$Resources:core,Tasks_NotStarted;</Default></Field><Field Name="Description1" ID="{f0c9d6d2-b0b2-4cb6-a4ec-5f882fc1cb02}" DisplayName="Description" Type="Note" RichText="FALSE" /><Field ID="{a8eb573e-9e11-481a-a8c9-1104a54b2fbd}" Name="Priority" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="Priority" Group="$Resources:core,Issue_Task_Columns;" Type="Choice" DisplayName="$Resources:core,Priority;"><CHOICES><CHOICE>$Resources:core,Priority_High;</CHOICE><CHOICE>$Resources:core,Priority_Normal;</CHOICE><CHOICE>$Resources:core,Priority_Low;</CHOICE></CHOICES><Default>$Resources:core,Priority_Normal;</Default></Field></Fields>
+    <Views>
+      
+      
+    <View BaseViewID="0" Type="HTML" MobileView="TRUE" TabularView="FALSE">
+        <Toolbar Type="Standard" />
+        <XslLink Default="TRUE">main.xsl</XslLink>
+        <RowLimit Paged="TRUE">30</RowLimit>
+        <ViewFields>
+          
+        <FieldRef Name="LinkTitleNoMenu"></FieldRef></ViewFields>
+        <Query>
+          <OrderBy>
+            
+          <FieldRef Name="Modified" Ascending="FALSE"></FieldRef></OrderBy>
+        </Query>
+        <ParameterBindings>
+          <ParameterBinding Name="AddNewAnnouncement" Location="Resource(wss,addnewitem)" />
+          <ParameterBinding Name="NoAnnouncements" Location="Resource(wss,noXinviewofY_LIST)" />
+          <ParameterBinding Name="NoAnnouncementsHowTo" Location="Resource(wss,noXinviewofY_ONET_HOME)" />
+        </ParameterBindings>
+      </View><View BaseViewID="1" Type="HTML" WebPartZoneID="Main" DisplayName="$Resources:core,objectiv_schema_mwsidcamlidC24;" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" SetupPath="pages\viewpage.aspx" ImageUrl="/_layouts/15/images/generic.png?rev=23" Url="AllItems.aspx">
+        <Toolbar Type="Standard" />
+        <XslLink Default="TRUE">main.xsl</XslLink>
+        <JSLink>clienttemplates.js</JSLink>
+        <RowLimit Paged="TRUE">30</RowLimit>
+        <ViewFields>
+          
+        <FieldRef Name="LinkTitle"></FieldRef><FieldRef Name="AssignedGroup" /><FieldRef Name="IssueID" /><FieldRef Name="Date1" /><FieldRef Name="TaskStatus" /><FieldRef Name="Description1" /><FieldRef Name="Priority" /></ViewFields>
+        <Query>
+          <OrderBy>
+            
+          <FieldRef Name="ID"></FieldRef></OrderBy>
+        </Query>
+        <ParameterBindings>
+          <ParameterBinding Name="NoAnnouncements" Location="Resource(wss,noXinviewofY_LIST)" />
+          <ParameterBinding Name="NoAnnouncementsHowTo" Location="Resource(wss,noXinviewofY_DEFAULT)" />
+        </ParameterBindings>
+      </View></Views>
+    <Forms>
+      <Form Type="DisplayForm" Url="DispForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+      <Form Type="EditForm" Url="EditForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+      <Form Type="NewForm" Url="NewForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+    </Forms>
+  </MetaData>
+</List>

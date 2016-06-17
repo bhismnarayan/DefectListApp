@@ -1,0 +1,5 @@
+obj\Debug\_DefectApp.g.cs
+obj\Debug\Workflow.g.cs
+obj\Debug\DefectApp.Workflow.Notification_Workflow_BeforeInitializeComponentHelper.cs
+obj\Debug\_AssemblyInfo_4c41612fe6614fc7a2a5d2d6a64cc16a.g.cs
+C:\Users\bhnaraya\Documents\Visual Studio 2015\Projects\DefectApp\DefectApp\obj\Debug\DefectApp.Workflow.Notification_Workflow_CompiledExpressionRoot.cs

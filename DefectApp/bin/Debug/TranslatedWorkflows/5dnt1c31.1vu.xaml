@@ -1,0 +1,177 @@
+<Activity mc:Ignorable="sads" x:Class="DefectApp.Workflow.Notification.Workflow"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:made="clr-namespace:Microsoft.Activities.Design.ExpressionTranslation;assembly=Microsoft.Activities.Design"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:mca="clr-namespace:Microsoft.CSharp.Activities;assembly=System.Activities"
+ xmlns:p="http://schemas.microsoft.com/workflow/2012/07/xaml/activities"
+ xmlns:p1="wf://workflow.windows.net/$Activities"
+ xmlns:s="clr-namespace:System;assembly=mscorlib"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Sequence sads:DebugSymbol.Symbol="9xC6/sR/KSq3K7MzKWAEt9P4b2M6XHVzZXJzXGJobmFyYXlhXGRvY3VtZW50c1x2aXN1YWwgc3R1ZGlvIDIwMTVcUHJvamVjdHNcRGVmZWN0QXBwXERlZmVjdEFwcFxXb3JrZmxvd1xOb3RpZmljYXRpb25cV29ya2Zsb3cueGFtbAYrA3EOAgEBMgVEGwIBF0UFUxwCARBUBVoZAgEMWwVnGQIBB2gFbxACAQI=">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="p:DynamicValue" x:Name="__ReferenceID0" Name="GetDefectValue" />
+      <Variable x:TypeArguments="x:Int32" x:Name="__ReferenceID1" Name="AssignedGroup" />
+      <Variable x:TypeArguments="x:String" x:Name="__ReferenceID2" Name="Title" />
+      <Variable x:TypeArguments="sco:Collection(x:String)" x:Name="__ReferenceID3" Name="Recepients" />
+    </Sequence.Variables>
+    <p1:LookupSPListItem ItemGuid="{x:Null}" Properties="{x:Null}">
+      <p1:LookupSPListItem.ItemId>
+        <InArgument x:TypeArguments="x:Int32">
+          <p:ExpressionContainerValue x:TypeArguments="x:Int32">
+            <p1:GetCurrentItemId />
+          </p:ExpressionContainerValue>
+        </InArgument>
+      </p1:LookupSPListItem.ItemId>
+      <p1:LookupSPListItem.ListId>
+        <InArgument x:TypeArguments="s:Guid">
+          <p:ExpressionContainerValue x:TypeArguments="s:Guid" DisplayName="System.Guid.Parse(&quot;{$ListId:Lists/DefectList;}&quot;)">
+            <p:ParseGuid Value="{}{$ListId:Lists/DefectList;}" />
+          </p:ExpressionContainerValue>
+        </InArgument>
+      </p1:LookupSPListItem.ListId>
+      <p1:LookupSPListItem.Result>
+        <OutArgument x:TypeArguments="p:DynamicValue">
+          <p:ExpressionContainerReference x:TypeArguments="p:DynamicValue" DisplayName="GetDefectValue">
+            <p:ExpressionContainerReference.Arguments>
+              <InOutArgument x:TypeArguments="p:DynamicValue" x:Key="GetDefectValue">
+                <VariableReference x:TypeArguments="p:DynamicValue" Variable="{x:Reference __ReferenceID0}" />
+              </InOutArgument>
+            </p:ExpressionContainerReference.Arguments>
+            <ArgumentReference x:TypeArguments="p:DynamicValue" ArgumentName="GetDefectValue" />
+          </p:ExpressionContainerReference>
+        </OutArgument>
+      </p1:LookupSPListItem.Result>
+    </p1:LookupSPListItem>
+    <p:GetODataProperties DisplayName="GetDynamicValueProperties">
+      <p:GetODataProperties.Source>
+        <InArgument x:TypeArguments="p:DynamicValue">
+          <p:ExpressionContainerValue x:TypeArguments="p:DynamicValue" DisplayName="GetDefectValue">
+            <p:ExpressionContainerValue.Arguments>
+              <InArgument x:TypeArguments="p:DynamicValue" x:Key="GetDefectValue">
+                <VariableValue x:TypeArguments="p:DynamicValue" Variable="{x:Reference __ReferenceID0}" />
+              </InArgument>
+            </p:ExpressionContainerValue.Arguments>
+            <ArgumentValue x:TypeArguments="p:DynamicValue" ArgumentName="GetDefectValue" />
+          </p:ExpressionContainerValue>
+        </InArgument>
+      </p:GetODataProperties.Source>
+      <scg:Dictionary x:TypeArguments="x:String, OutArgument">
+        <OutArgument x:TypeArguments="x:Int32" x:Key="AssignedGroupId">
+          <p:ExpressionContainerReference x:TypeArguments="x:Int32" DisplayName="AssignedGroup">
+            <p:ExpressionContainerReference.Arguments>
+              <InOutArgument x:TypeArguments="x:Int32" x:Key="AssignedGroup">
+                <VariableReference x:TypeArguments="x:Int32" Variable="{x:Reference __ReferenceID1}" />
+              </InOutArgument>
+            </p:ExpressionContainerReference.Arguments>
+            <ArgumentReference x:TypeArguments="x:Int32" ArgumentName="AssignedGroup" />
+          </p:ExpressionContainerReference>
+        </OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="Title">
+          <p:ExpressionContainerReference x:TypeArguments="x:String" DisplayName="Title">
+            <p:ExpressionContainerReference.Arguments>
+              <InOutArgument x:TypeArguments="x:String" x:Key="Title">
+                <VariableReference x:TypeArguments="x:String" Variable="{x:Reference __ReferenceID2}" />
+              </InOutArgument>
+            </p:ExpressionContainerReference.Arguments>
+            <ArgumentReference x:TypeArguments="x:String" ArgumentName="Title" />
+          </p:ExpressionContainerReference>
+        </OutArgument>
+      </scg:Dictionary>
+    </p:GetODataProperties>
+    <p1:WriteToHistory>
+      <p1:WriteToHistory.Message>
+        <InArgument x:TypeArguments="x:String">
+          <p:ExpressionContainerValue x:TypeArguments="x:String" DisplayName="&quot;Title is &quot; + Title.ToString() +&quot;Client &quot;+AssignedGroup.ToString()">
+            <p:ExpressionContainerValue.Arguments>
+              <InArgument x:TypeArguments="x:Object" x:Key="Title">
+                <VariableValue x:TypeArguments="x:Object" Variable="{x:Reference __ReferenceID2}" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:Object" x:Key="AssignedGroup">
+                <VariableValue x:TypeArguments="x:Object" Variable="{x:Reference __ReferenceID1}" />
+              </InArgument>
+            </p:ExpressionContainerValue.Arguments>
+            <p:ConcatString>
+              <InArgument x:TypeArguments="x:String" EvaluationOrder="1">
+                <p:ConcatString>
+                  <InArgument x:TypeArguments="x:String" EvaluationOrder="1">
+                    <p:ConcatString>
+                      <p:ConcatString.Result>
+                        <OutArgument x:TypeArguments="x:String" />
+                      </p:ConcatString.Result>
+                      <InArgument x:TypeArguments="x:String" EvaluationOrder="1" Expression="Title is " />
+                      <InArgument x:TypeArguments="x:String" EvaluationOrder="2">
+                        <p:ToString CultureName="{x:Null}" Format="{x:Null}">
+                          <p:ToString.Result>
+                            <OutArgument x:TypeArguments="x:String" />
+                          </p:ToString.Result>
+                          <InArgument x:TypeArguments="x:Object">
+                            <ArgumentValue x:TypeArguments="x:Object" ArgumentName="Title" />
+                          </InArgument>
+                        </p:ToString>
+                      </InArgument>
+                    </p:ConcatString>
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" EvaluationOrder="2" Expression="Client " />
+                </p:ConcatString>
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" EvaluationOrder="2">
+                <p:ToString>
+                  <InArgument x:TypeArguments="x:Object">
+                    <ArgumentValue x:TypeArguments="x:Object" ArgumentName="AssignedGroup" />
+                  </InArgument>
+                </p:ToString>
+              </InArgument>
+            </p:ConcatString>
+          </p:ExpressionContainerValue>
+        </InArgument>
+      </p1:WriteToHistory.Message>
+    </p1:WriteToHistory>
+    <p:BuildCollection x:TypeArguments="x:String">
+      <p:BuildCollection.Result>
+        <OutArgument x:TypeArguments="sco:Collection(x:String)">
+          <p:ExpressionContainerReference x:TypeArguments="sco:Collection(x:String)" DisplayName="Recepients">
+            <p:ExpressionContainerReference.Arguments>
+              <InOutArgument x:TypeArguments="sco:Collection(x:String)" x:Key="Recepients">
+                <VariableReference x:TypeArguments="sco:Collection(x:String)" Variable="{x:Reference __ReferenceID3}" />
+              </InOutArgument>
+            </p:ExpressionContainerReference.Arguments>
+            <ArgumentReference x:TypeArguments="sco:Collection(x:String)" ArgumentName="Recepients" />
+          </p:ExpressionContainerReference>
+        </OutArgument>
+      </p:BuildCollection.Result>
+      <p:BuildCollection.Values>
+        <InArgument x:TypeArguments="x:String">
+          <p:ExpressionContainerValue x:TypeArguments="x:String" DisplayName="AssignedGroup.ToString()">
+            <p:ExpressionContainerValue.Arguments>
+              <InArgument x:TypeArguments="x:Object" x:Key="AssignedGroup">
+                <VariableValue x:TypeArguments="x:Object" Variable="{x:Reference __ReferenceID1}" />
+              </InArgument>
+            </p:ExpressionContainerValue.Arguments>
+            <p:ToString>
+              <InArgument x:TypeArguments="x:Object">
+                <ArgumentValue x:TypeArguments="x:Object" ArgumentName="AssignedGroup" />
+              </InArgument>
+            </p:ToString>
+          </p:ExpressionContainerValue>
+        </InArgument>
+      </p:BuildCollection.Values>
+    </p:BuildCollection>
+    <p1:Email AdditionalHeaders="{x:Null}" BCC="{x:Null}" CC="{x:Null}" Body="Test Email" Subject="Test Email">
+      <p1:Email.To>
+        <InArgument x:TypeArguments="sco:Collection(x:String)">
+          <p:ExpressionContainerValue x:TypeArguments="sco:Collection(x:String)" DisplayName="Recepients">
+            <p:ExpressionContainerValue.Arguments>
+              <InArgument x:TypeArguments="sco:Collection(x:String)" x:Key="Recepients">
+                <VariableValue x:TypeArguments="sco:Collection(x:String)" Variable="{x:Reference __ReferenceID3}" />
+              </InArgument>
+            </p:ExpressionContainerValue.Arguments>
+            <ArgumentValue x:TypeArguments="sco:Collection(x:String)" ArgumentName="Recepients" />
+          </p:ExpressionContainerValue>
+        </InArgument>
+      </p1:Email.To>
+    </p1:Email>
+  </Sequence>
+</Activity>

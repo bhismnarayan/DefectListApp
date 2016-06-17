@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  
+  <CustomAction Id="7d6727df-3df9-4671-baa8-6e9fdef3ae32.Status"
+                RegistrationType="List"
+                RegistrationId="{$ListId:Lists/DefectList;}"
+                Location="CommandUI.Ribbon"
+                Sequence="10001"
+                Title="Invoke &apos;Status&apos; action">
+    
+    <CommandUIExtension>
+      <!-- 
+      Update the UI definitions below with the controls and the command actions
+      that you want to enable for the custom action.
+      -->
+      <CommandUIDefinitions>
+        <CommandUIDefinition Location="Ribbon.ListItem.Actions.Controls._children">
+          <Button Id="Ribbon.ListItem.Actions.StatusButton"
+                  Alt="Status"
+                  Sequence="100"
+                  Command="Invoke_StatusButtonRequest"
+                  LabelText="Status"
+                  TemplateAlias="o1"
+                  Image32by32="_layouts/15/images/placeholder32x32.png"
+                  Image16by16="_layouts/15/images/placeholder16x16.png" />
+        </CommandUIDefinition>
+        
+      </CommandUIDefinitions>
+      <CommandUIHandlers>
+        <CommandUIHandler Command="Invoke_StatusButtonRequest"
+                          CommandAction="javascript:hello();"/>
+        
+      </CommandUIHandlers>
+    </CommandUIExtension >
+  </CustomAction>
+  <CustomAction Id="Hello" Location="ScriptLink" ScriptSrc="~appWebUrl/Scripts/Custom.Ribbon.DropDown.js" Sequence="1"></CustomAction>
+</Elements>

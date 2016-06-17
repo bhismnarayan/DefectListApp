@@ -1,0 +1,2 @@
+obj\Debug\Workflow.g.xaml
+obj\Debug\DefectApp.Workflow.Notification_Workflow_BeforeInitializeComponentHelper.txt

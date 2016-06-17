@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="d2544c14-14b2-4384-83b7-624f0c60eeea" solutionId="d2544c14-14b2-4384-83b7-624f0c60eeea" resetWebServer="false" sharePointProductVersion="16.0" name="DefectApp" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <features>
+    <featureReference itemId="6ab92095-82be-4e73-a5af-6c48a6180f06" />
+    <featureReference itemId="ef3897d0-fdbe-4d97-92f2-d248689270ad" />
+    <featureReference itemId="ebbc601e-6de2-476a-9041-30ce96021b70" />
+  </features>
+</package>
